@@ -58,16 +58,12 @@ ul {
 }
 
 li {
-    margin-bottom: 10px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table, th, td {
+    margin-bottom: 10px;body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+    }
     border: 1px solid #ddd;
 }
 
