@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/database.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/database.php";
 class Users
 {
     private $databaseConnection;
@@ -59,26 +59,16 @@ class Users
         return $result;
     }
 
-    public function updateUserForTeacher($userId, $username, $password, $email, $name, $phonenumber)
+    public function updateUserForTeacher($userId, $username, $email, $name, $phonenumber)
     {
-        if ($password != NULL) {
-            $sql = "UPDATE users 
-			SET username = '$username', 
-				password = '$password', 
-				email = '$email', 
-				name = '$name', 
-				phonenumber = '$phonenumber'
-			WHERE user_id = '$userId'";
-            $this->databaseConnection->query($sql);
-        } else {
-            $sql = "UPDATE users 
+        $sql = "UPDATE users 
 			SET username = '$username', 
 				email = '$email', 
 				name = '$name', 
 				phonenumber = '$phonenumber'
 			WHERE user_id = '$userId'";
-            $this->databaseConnection->query($sql);
-        }
+        $result = $this->databaseConnection->query($sql);
+        return $result;
     }
 
     public function updateUserForStudent($userId, $email, $phonenumber)

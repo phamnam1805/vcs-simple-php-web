@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/database.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/database.php";
 
 class Messages
 {
@@ -12,9 +12,9 @@ class Messages
         $this->databaseConnection = $this->databaseReference->connect();
     }
 
-    public function getMessages($senderId)
+    public function getMessages($userId)
     {
-        $sql = "SELECT * FROM messages WHERE send_id = '$senderId'";
+        $sql = "SELECT * FROM messages WHERE sender_id = '$userId' OR receiver_id = '$userId'";
         $result = $this->databaseConnection->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
@@ -47,8 +47,9 @@ class Messages
 
     public function deleteMessage($messageId)
     {
-        $sql = "DELETE FROM message WHERE message_id = $messageId";
+        $sql = "DELETE FROM messages WHERE message_id = $messageId";
         $result = $this->databaseConnection->query($sql);
         return $result;
     }
-}
+}        // You may redirect to the same or another page after deletion
+// header('Location: current_page.php');
