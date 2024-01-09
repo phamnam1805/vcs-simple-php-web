@@ -1,3 +1,3 @@
 <header>
-    <h1>Teacher Page</h1>
+    <h1>Student Page</h1>
 </header>
