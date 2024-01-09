@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <th>Assignment ID</th>
                     <th>Teacher ID</th>
                     <th>File</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,6 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 File not available
                             <?php endif; ?>
                         </td>
+                        <td>
+                            <button type="button" onclick="redirectToDetailPage(<?php echo $assignment['assignment_id']; ?>)">Detail</button>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -63,6 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
+<script>
+    function redirectToDetailPage(assignmentId) {
+        window.location.href = 'detail/index.php?assignment_id=' + assignmentId;
+    }
+</script>
 
 <?php
 

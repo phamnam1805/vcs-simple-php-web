@@ -34,4 +34,20 @@ class Submissions
 					VALUES ('$assignmentId', '$studentId' , '$filePath')";
         $this->databaseConnection->query($sql);
     }
+
+    function getSubmissionsByAssignmentId($assignmentId)
+    {
+        $sql = "SELECT * FROM submissions WHERE assignment_id='$assignmentId'";
+        $result = $this->databaseConnection->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            $resultSet = array();
+            while ($row = $result->fetch_assoc()) {
+                $resultSet[] = $row;
+            }
+            return $resultSet;
+        } else {
+            return null;
+        }
+    }
 }
