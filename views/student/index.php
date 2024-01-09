@@ -50,7 +50,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 
     <div class="container">
         <button onclick="location.href='messages/index.php'">Messages</button>
-        <button>Assignments</button>
+        <button onclick="location.href='assignments/index.php'">Assignments</button>
     </div>
 
     <div class="container">

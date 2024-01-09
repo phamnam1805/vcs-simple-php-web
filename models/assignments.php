@@ -35,8 +35,25 @@ class Assignments
         $this->databaseConnection->query($sql);
     }
 
-    function deleteAssignment($assignment_id){
+    function deleteAssignment($assignment_id)
+    {
         $sql = "DELETE FROM assignments WHERE assignment_id='$assignment_id'";
         $this->databaseConnection->query($sql);
+    }
+
+    function getNotCompletedAssignmentsByStudentId($studentId)
+    {
+        $sql = "SELECT * FROM assignments WHERE assignment_id NOT IN (SELECT assignment_id FROM submissions WHERE student_id='$studentId')";
+        $result = $this->databaseConnection->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            $resultSet = array();
+            while ($row = $result->fetch_assoc()) {
+                $resultSet[] = $row;
+            }
+            return $resultSet;
+        } else {
+            return null;
+        }
     }
 }
