@@ -56,7 +56,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
     <div class="container">
         <h2>Personal Information</h2>
         <p>User ID: <?php echo $user['user_id'] ?> </p>
-        <p>Username: <?php echo $user['username'] ?>192.168.88.128 </p>
+        <p>Username: <?php echo $user['username'] ?></p>
         <p>Email: <?php echo $user['email'] ?> </p>
         <p>Name: <?php echo $user['name'] ?> </p>
         <p>Phonenumber: <?php echo $user['phonenumber'] ?> </p>
