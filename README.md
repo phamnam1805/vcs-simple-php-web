@@ -4,7 +4,9 @@
 
 ### SQL
 
-Chạy file `vcs_web_programming.sql` để tạo lại CSDL
+Chạy file `vcs_web_programming.sql` để tạo lại CSDL.
+
+Sửa `username`, `password`, `hosts`, `databasename` ở trong file database.php.
 
 ### Run
 
